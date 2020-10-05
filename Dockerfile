@@ -15,7 +15,10 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
 # install px4 toolchain
 RUN wget https://raw.githubusercontent.com/PX4/Firmware/master/Tools/setup/ubuntu.sh && \
     wget https://raw.githubusercontent.com/PX4/Firmware/master/Tools/setup/requirements.txt && \
-    bash ubuntu.sh
+    bash ubuntu.sh && \
+    pip3 install scipy && \
+    pip3 install pyquaternion && \
+    pip3 install mavsdk
 
 ENV QT_X11_NO_MITSHM 1
 ENV XDG_RUNTIME_DIR /tmp/runtime-root
